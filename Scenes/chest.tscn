@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://m3kkvah8pbk6"]
+[gd_scene load_steps=6 format=4 uid="uid://m3kkvah8pbk6"]
 
 [ext_resource type="TileSet" uid="uid://ckkmoyss7e8rf" path="res://Art/pixel_art_top_down.tres" id="1_my3i5"]
+[ext_resource type="Script" path="res://Scenes/closed_chest.gd" id="2_52uch"]
 [ext_resource type="PackedScene" uid="uid://b6lm3xtuv5nrg" path="res://Scenes/interaction_area.tscn" id="2_uiyb5"]
 [ext_resource type="Script" path="res://Scripts/interactable_object.gd" id="2_ys3tl"]
 [ext_resource type="Script" path="res://Scripts/interactable_control.gd" id="4_4s7yq"]
@@ -10,19 +11,20 @@
 [node name="ClosedChest" type="TileMapLayer" parent="."]
 y_sort_enabled = true
 scale = Vector2(4, 4)
-tile_map_data = PackedByteArray(0, 0, 0, 0, 255, 255, 2, 0, 6, 0, 0, 0, 0, 0)
+tile_map_data = PackedByteArray("AAAAAP7/AgACAAoAAAAAAP//AgACAAsAAAAAAAAAAgACAAwAAAAAAAEAAgACAA0AAAD//wAAAgABAAwAAAD/////AgABAAsAAAD//wEAAgABAA0AAAABAAAAAgADAAwAAAABAP//AgADAAsAAAABAP7/AgADAAoAAAABAAEAAgADAA0AAAACAP//AgAEAAsAAAACAP7/AgAEAAoAAAACAAAAAgAEAAwAAAACAAEAAgAEAA0AAAD///7/AgABAAoAAAA=")
 tile_set = ExtResource("1_my3i5")
+script = ExtResource("2_52uch")
 
 [node name="OpenChest" type="TileMapLayer" parent="."]
 visible = false
 y_sort_enabled = true
 scale = Vector2(4, 4)
-tile_map_data = PackedByteArray(0, 0, 0, 0, 255, 255, 2, 0, 6, 0, 4, 0, 0, 0)
+tile_map_data = PackedByteArray("AAAAAP//AgACAAcAAAD///7/AgABAAYAAAD/////AgABAAcAAAD//wAAAgABAAgAAAD//wEAAgABAAkAAAAAAP7/AgACAAYAAAAAAAAAAgACAAgAAAAAAAEAAgACAAkAAAABAP7/AgADAAYAAAABAP//AgADAAcAAAABAAAAAgADAAgAAAABAAEAAgADAAkAAAACAP7/AgAEAAYAAAACAP//AgAEAAcAAAACAAAAAgAEAAgAAAACAAEAAgAEAAkAAAA=")
 tile_set = ExtResource("1_my3i5")
 script = ExtResource("2_ys3tl")
 
 [node name="InteractionArea" parent="." instance=ExtResource("2_uiyb5")]
-position = Vector2(33, -34)
+position = Vector2(67, 36)
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -55,7 +57,8 @@ offset_top = 10.88
 offset_right = -29.2
 offset_bottom = -19.12
 theme_override_font_sizes/font_size = 24
-text = "The chest is empty."
+text = "The door reveals wonders.
+But you closed it."
 
 [connection signal="body_exited" from="InteractionArea" to="OpenChest" method="_on_interaction_area_body_exited"]
 [connection signal="body_exited" from="InteractionArea" to="Control" method="_on_interaction_area_body_exited"]

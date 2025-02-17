@@ -17,13 +17,13 @@ func move(move_input):
 	velocity = Vector2(0,0)
 	match move_input:
 		Globals.InputDirection.LEFT:
-			velocity += Vector2(-1,0)
+			velocity += Vector2(-5,0)
 		Globals.InputDirection.RIGHT:
-			velocity += Vector2(1,0)
+			velocity += Vector2(5,0)
 		Globals.InputDirection.UP:
-			velocity += Vector2(0,-1)
+			velocity += Vector2(0,-5)
 		Globals.InputDirection.DOWN:
-			velocity += Vector2(0,1)
+			velocity += Vector2(0,5)
 	velocity = velocity * speed
 	move_and_slide()
 # PRIVATE METHODS
@@ -38,6 +38,3 @@ func _process(delta: float) -> void:
 	pass
 
 # SUBCLASSES
-
-
-
